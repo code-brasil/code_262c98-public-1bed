@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel Administrativo</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+  <div class="bg-white p-8 rounded shadow-md w-80">
+    <h2 class="text-xl font-bold mb-4">Login Administrativo</h2>
+    <form id="loginForm" class="space-y-4">
+      <div>
+        <label class="block text-sm">Usuário</label>
+        <input type="text" id="username" class="w-full border rounded px-2 py-1" placeholder="admin">
+      </div>
+      <div>
+        <label class="block text-sm">Senha</label>
+        <input type="password" id="password" class="w-full border rounded px-2 py-1" placeholder="greb2025">
+      </div>
+      <button type="submit" class="w-full bg-blue-500 text-white px-4 py-2 rounded">Entrar</button>
+    </form>
+    <p id="errorMsg" class="text-red-500 mt-2 hidden">Credenciais inválidas</p>
+  </div>
+
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      if(username === 'admin' && password === 'greb2025') {
+        // Redireciona para o dashboard administrativo (pode ser expandido conforme o projeto)
+        window.location.href = 'index.html';
+      } else {
+        document.getElementById('errorMsg').classList.remove('hidden');
+      }
+    });
+  </script>
+</body>
+</html>
